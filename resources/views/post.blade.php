@@ -15,7 +15,10 @@
     <div class="container">
         <div class="row">
             <div class="col-12"> 
-                {!!$post!!}
+                <article>
+                  {!!$post!!}
+                  <a href="/">Go Back</a>
+                </article>
             </div>
         </div>
     </div>

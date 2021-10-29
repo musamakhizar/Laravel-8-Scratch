@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Post;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,27 +16,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    $page_title = "Home Page";
-    return view('posts',compact('page_title'));
+    $posts = Post::all();
+    
+    return view('posts',[
+        'posts' => $posts
+    ]);
 });
 
 
-Route::get('/post/{post}', function ($slug) {
-    
-    
-    //-- Security check file exists by passing the file path and calling file_exists function --//
-    if(! file_exists($path = __DIR__ . "/../resources/posts/{$slug}.html")) //he path of the dir containing files
-    {
-        return redirect("/"); // -> if post (file) does'nt exists then redirect back to the home page 
-    }
-    //-- Caching File --//
-    
-    $post = cache()->remember("post.{$slug}", now()->addMinute(60), function () use ($path){
-        return file_get_contents($path); //read file into a string from the given path 
-    });
-
-    //-- short closure or arrow function --//
-    // $post = cache()->remember('post.{$slug}', now()->addMinute(60), fn() => file_get_contents($path));
-
-    return view('post', compact('post'));
-})->where('post','[A-z0-9\_-]+'); //constraint
+//Route::get('/post/{slug}', [PostController::class,'old_one'])->where('post','[A-z0-9\_-]+'); //constraint
+Route::get('/post/{slug}', [PostController::class,'new_one'])->where('post','[A-z0-9\_-]+'); //constraint

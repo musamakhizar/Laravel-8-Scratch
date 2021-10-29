@@ -8,44 +8,17 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{asset('assets/vendors/bootstrap/css/bootstrap.min.css')}}">
 
-    <title>{{$page_title}}</title>
+    <title>Home Page</title>
   </head>
   <body>
 
     <div class="container">
         <div classs="row">
             <div class="col-12"> 
-                <article>
-                   
-                    <a href="/post/post-1"><h1>Post-1</h1></a>
-                    
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut tincidunt rutrum tortor, sed auctor purus faucibus vitae. Donec vehicula vitae mauris ut placerat. Vestibulum sit amet risus dapibus mauris dignissim feugiat at eu tellus. Phasellus ut tempor
-                        quam. In sed mauris sagittis, finibus sem non, hendrerit diam. Morbi sapien justo, ultricies sed diam quis, pretium lobortis diam. Nam vestibulum risus libero, ut hendrerit ligula porttitor et. Maecenas vitae velit non lorem tempor tempus. Etiam
-                        
-                        <a href="/post/post-1">Read More</a>
-                    </p>
-                </article>
-                <article>
-                    <a href="/post/post-2"><h1>Post-2</h1></a>
-                    
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut tincidunt rutrum tortor, sed auctor purus faucibus vitae. Donec vehicula vitae mauris ut placerat. Vestibulum sit amet risus dapibus mauris dignissim feugiat at eu tellus. Phasellus ut tempor
-                        quam. In sed mauris sagittis, finibus sem non, hendrerit diam. Morbi sapien justo, ultricies sed diam quis, pretium lobortis diam. Nam vestibulum risus libero, ut hendrerit ligula porttitor et. Maecenas vitae velit non lorem tempor tempus. Etiam
-                        
-                        <a href="/post/post-2">Read More</a>
-                    </p>
-                </article>
-                <article>
-                  <a href="/post/post-3"><h1>Post-3</h1></a>
-                  
-                  <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut tincidunt rutrum tortor, sed auctor purus faucibus vitae. Donec vehicula vitae mauris ut placerat. Vestibulum sit amet risus dapibus mauris dignissim feugiat at eu tellus. Phasellus ut tempor
-                      quam. In sed mauris sagittis, finibus sem non, hendrerit diam. Morbi sapien justo, ultricies sed diam quis, pretium lobortis diam. Nam vestibulum risus libero, ut hendrerit ligula porttitor et. Maecenas vitae velit non lorem tempor tempus. Etiam
-                      
-                      <a href="/post/post-3">Read More</a>
-                  </p>
-               </article>
+                <?php foreach ($posts as $post) : ?>
+                    <?= $post ?>
+                <?php endforeach;?>
+                
             </div>
         </div>
     </div>
