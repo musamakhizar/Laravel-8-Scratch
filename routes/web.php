@@ -14,5 +14,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $page_title = "Home Page";
+    return view('posts',compact('page_title'));
+});
+
+
+Route::get('/post/{post}', function ($post) {
+    $post = file_get_contents(__DIR__ . "/../resources/posts/{$post}.html");
+    return view('post', compact('post'));
 });

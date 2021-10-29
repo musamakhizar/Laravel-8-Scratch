@@ -11,11 +11,12 @@
     <title>Page Title</title>
   </head>
   <body>
-    <h1>Hello, world!</h1>
-
+   
     <div class="container">
-        <div class="">
-
+        <div class="row">
+            <div class="col-12"> 
+                {!!$post!!}
+            </div>
         </div>
     </div>
 
