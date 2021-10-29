@@ -8,15 +8,16 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{asset('assets/vendors/bootstrap/css/bootstrap.min.css')}}">
 
-    <title>Page Title</title>
+    <title>Laravel 8 Blog</title>
   </head>
   <body>
    
     <div class="container">
         <div class="row">
-            <div class="col-12"> 
+            <div class="col-md-12 p-5"> 
                 <article>
-                  {!!$post!!}
+                  <h1>{{$post->title}}</h1>
+                  {!!$post->body!!}
                   <a href="/">Go Back</a>
                 </article>
             </div>
