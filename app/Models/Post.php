@@ -36,7 +36,7 @@ class Post
                 $document->matter('date'),
                 $document->body()
             );
-        });
+        })->sortByDesc('date');
         
         
         //$files =  File::files(resource_path("posts/"));
