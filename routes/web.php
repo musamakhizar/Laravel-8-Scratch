@@ -19,7 +19,22 @@ Route::get('/', function () {
 });
 
 
-Route::get('/post/{post}', function ($post) {
-    $post = file_get_contents(__DIR__ . "/../resources/posts/{$post}.html");
+Route::get('/post/{post}', function ($slug) {
+    
+    //-- The path of the dir containing files --//
+
+    $path = __DIR__ . "/../resources/posts/{$slug}.html";
+
+    //-- Security check file exists by passing the file path and calling file_exists function --//
+    if(! file_exists($path))
+    {
+        //dd("Not exists");
+        //abort(404);
+        return redirect("/"); // -> if post (file) does'nt exists then redirect back to the home page 
+    }
+    //dd("File exits");
+
+    $post = file_get_contents($path); //read file into a string from the given path
+
     return view('post', compact('post'));
-});
+})->where('post','[A-z0-9\_-]+'); //constraint
