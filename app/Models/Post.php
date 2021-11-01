@@ -78,11 +78,23 @@ class Post
 
     public static function find($slug)
     {
-        $posts = static::all();
-        
-        return $posts->firstWhere('slug',$slug);
+        return static::all()->firstWhere('slug',$slug);
     }
 
+    public static function findorfail($slug)
+    {
+        $posts = static::find($slug);
+        if(!$posts)
+        {
+            throw new ModelNotFoundException();
+        }
+        
+        //where('post','[A-z0-9\_-]+')
+        
+        return $posts;
+
+
+    }
     //-- Old One Before Yaml Implementation --//
     // public static function all()
     // {

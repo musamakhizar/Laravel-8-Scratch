@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
+
 class PostController extends Controller
 {
+
     public function new_one($slug)
     {
         //find a post by its slug and pass it to a view called post

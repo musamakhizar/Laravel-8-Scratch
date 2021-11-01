@@ -26,4 +26,4 @@ Route::get('/', function () {
 
 
 //Route::get('/post/{slug}', [PostController::class,'old_one'])->where('post','[A-z0-9\_-]+'); //constraint
-Route::get('/post/{slug}', [PostController::class,'new_one'])->where('post','[A-z0-9\_-]+'); //constraint
+Route::get('/post/{slug}', [PostController::class,'new_one']); //constraint
