@@ -10,7 +10,7 @@
                   <div class="col-md-12">
                     <article>  
                   
-                      <a href="/post/{{$post->slug}}">
+                      <a href="/posts/{{$post->slug}}">
                         <h1>{{$post->title}}</h1>
                       </a>
                       {!! $post->excerpt !!}

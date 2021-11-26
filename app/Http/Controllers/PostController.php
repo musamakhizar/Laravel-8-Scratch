@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class PostController extends Controller
 {
 
-    public function new_one($slug)
+    public function ver_2($slug)
     {
         //find a post by its slug and pass it to a view called post
         //CodeClean,Filesystem Class(Model),Controller,Dynamic Post Home
@@ -18,7 +18,7 @@ class PostController extends Controller
         ]);
     }
 
-    public function old_one($slug)
+    public function ver_1($slug)
     {
         //-- Security check file exists by passing the file path and calling file_exists function --//
             if(! file_exists($path = __DIR__ . "/../../../resources/posts/{$slug}.html")) //he path of the dir containing files
